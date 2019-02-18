@@ -8,5 +8,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :address, presence: true
-  validates :is_athlete, presence: true
+  validates :is_athlete, inclusion: { in: [true, false] }
 end
