@@ -1,0 +1,1 @@
+#1 - validates model's attributes (cnpj, cfp, birth_date)
