@@ -2,14 +2,16 @@ class AthletesController < ApplicationController
   before_action :set_athlete, except: %i[index new create]
 
   def index
-    @athletes = Athlete.all
-    autorize @athletes
+    @athletes = policy_scope(Athlete)
   end
 
-  def show; end
+  def show
+    authorize @athlete
+  end
 
   def new
     @athlete = Athlete.new
+    authorize @athlete
   end
 
   def create
@@ -20,6 +22,7 @@ class AthletesController < ApplicationController
     else
       render :new
     end
+    authorize @athlete
   end
 
   def edit; end
@@ -30,6 +33,7 @@ class AthletesController < ApplicationController
     else
       render :edit
     end
+    authorize @athlete
   end
 
   def destroy
@@ -38,6 +42,7 @@ class AthletesController < ApplicationController
 
     redirect_to :root
     # must log-out && redirect to home page
+    authorize @athlete
   end
 
   private
