@@ -1,27 +1,21 @@
 <div class="container is-fullhd">
   <div class="notification">
     <p>
-    <strong>Name:</strong>
-    <%= @athlete.first_name %> <%= @athlete.last_name %>
+      <strong>Name:</strong>
+      <%= @athlete.first_name %> <%= @athlete.last_name %>
     </p>
 
     <p>
-    <strong>Birth Date:</strong>
-    <%= @athlete.birth_date %>
+      <strong>Birth Date:</strong>
+      <%= @athlete.birth_date %>
     </p>
 
     <p>
-    <strong>CPF:</strong>
-    <%= @athlete.cpf %>
+      <strong>CPF:</strong>
+      <%= @athlete.cpf %>
     </p>
-
-
-    <h3>Achievements</h3>
 
     <p> <%= link_to "Edit profile", edit_athlete_path(@athlete) %></p>
     <p> <%= link_to "Back to Brands", brands_path %></p>
-
   </div>
 </div>
-
-
