@@ -3,7 +3,7 @@ class AthletesController < ApplicationController
 
   def index
     @athletes = Athlete.all
-    autorize @athletes
+    authorize @athletes
   end
 
   def show; end
