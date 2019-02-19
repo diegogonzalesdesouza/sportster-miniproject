@@ -13,4 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bulma";
+
+/* import all index files/partials */
+@import "pages/index"
+@import "layouts/index"
+@import "components/index"
