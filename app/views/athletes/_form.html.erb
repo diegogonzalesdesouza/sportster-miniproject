@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="columns is-centered form-container-to-vcenter is-vcentered">
+    <div class="column is-one-third">
+      <div class="box">
+        <%= form_for @athlete do |f| %>
+        <%= f.label :first_name, 'First Name', class:'label'%>
+        <%= f.text_field :first_name, class:"input", type: "text", placeholder: "John" %>
+        <%= f.label :last_name, 'Last Name', class:'label'%>
+        <%= f.text_field :last_name, class:"input", type: "text", placeholder: "Doe" %>
+        <%= f.label :cpf, 'CPF', class:'label'%>
+        <%= f.text_field :cpf, class:"input", type: "text", placeholder: "36577572716" %>
+        <%= f.label :birth_date, 'Date of Birth', class:'label'%>
+        <%= f.text_field :birth_date, class:"input", type: "text", placeholder: "18/07/1997" %>
+        <div style="margin: 5px">
+          <%= f.submit "Save", class: "button is-link" %>
+          <%= link_to "Cancel", brands_path, class: "button is-text" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
