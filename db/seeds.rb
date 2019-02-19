@@ -21,3 +21,12 @@ User.all.each do |user|
 end
 
 puts "done!"
+
+puts "generating 2 'admin' users (User(id:1) as athlete | User(id: 2) as brand)"
+
+  admin1 = User.create(email: "athlete@test.com", password: "123456", address: Faker::Address.street_address, is_athlete: true)
+  admin2 = User.create(email: "brand@test.com", password: "123456", address: Faker::Address.street_address, is_athlete: false)
+  Athlete.create(first_name: "Roger", last_name: "Federer", birth_date: Date.new, cpf: 24, user: admin1)
+  Brand.create(name: "Nike", slogan: "just do it", cnpj: 10, user: admin2)
+
+puts "done!"
