@@ -15,10 +15,11 @@ class AthletesController < ApplicationController
 
   def create
     @athlete = Athlete.new(athlete_params)
+    @athlete.user = current_user
     authorize @athlete
 
     if @athlete.save
-      redirect_to :show
+      redirect_to @athlete
     else
       render :new
     end
@@ -27,8 +28,8 @@ class AthletesController < ApplicationController
   def edit; end
 
   def update
-    if @athlete.update
-      redirect_to :show
+    if @athlete.update(athlete_params)
+      redirect_to @athlete
     else
       render :edit
     end
