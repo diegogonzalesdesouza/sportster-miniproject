@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'athlete/index'
+  get 'athlete/show'
+  get 'athlete/new'
+  get 'athlete/create'
+  get 'athlete/edit'
+  get 'athlete/update'
+  get 'athlete/destroy'
   devise_for :users
   resources :athletes do
     resources :achievements, except: :show
