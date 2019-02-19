@@ -17,6 +17,6 @@
 @import "bulma";
 
 /* import all index files/partials */
-@import "pages/index"
-@import "layouts/index"
-@import "components/index"
+@import "pages/index";
+@import "layouts/index";
+@import "components/index";
