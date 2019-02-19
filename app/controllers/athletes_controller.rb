@@ -6,7 +6,6 @@ class AthletesController < ApplicationController
   end
 
   def show
-    authorize @athlete
   end
 
   def new
@@ -16,13 +15,13 @@ class AthletesController < ApplicationController
 
   def create
     @athlete = Athlete.new(athlete_params)
+    authorize @athlete
 
     if @athlete.save
       redirect_to :show
     else
       render :new
     end
-    authorize @athlete
   end
 
   def edit; end
@@ -33,7 +32,6 @@ class AthletesController < ApplicationController
     else
       render :edit
     end
-    authorize @athlete
   end
 
   def destroy
@@ -42,7 +40,6 @@ class AthletesController < ApplicationController
 
     redirect_to :root
     # must log-out && redirect to home page
-    authorize @athlete
   end
 
   private
@@ -53,5 +50,6 @@ class AthletesController < ApplicationController
 
   def set_athlete
     @athlete = Athlete.find(params[:id])
+    authorize @athlete
   end
 end
