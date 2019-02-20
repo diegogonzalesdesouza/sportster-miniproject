@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="columns is-centered form-container-to-vcenter is-vcentered">
+    <div class="column is-one-third">
+      <div class="box">
+        <%= form_for @brand do |f| %>
+        <%= f.label :name, 'Name', class:'label'%>
+        <%= f.text_field :name, class:"input", type: "text", placeholder: "Partnr" %>
+        <%= f.label :slogan, 'Slogan', class:'label'%>
+        <%= f.text_field :slogan, class:"input", type: "text", placeholder: "Wealth lifestyle made together" %>
+        <%= f.label :cnpj, 'CNPJ', class:'label'%>
+        <%= f.text_field :cnpj, class:"input", type: "text", placeholder: "36577572716" %>
+        <div style="margin: 5px">
+          <%= f.submit "Save", class: "button is-link" %>
+          <%= link_to "Cancel", athletes_path, class: "button is-text" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
