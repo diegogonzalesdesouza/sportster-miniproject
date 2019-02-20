@@ -16,12 +16,13 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(brand_params)
+    authorize @brand
+    @brand.user = current_user
     if @brand.save
-      redirect_to :show
+      redirect_to @brand
     else
       render :new
     end
-    authorize @brand
   end
 
   def edit
@@ -30,9 +31,9 @@ class BrandsController < ApplicationController
 
   def update
     if @brand.update(brand_params)
-      redirect_to :show
+      redirect_to @brand
     else
-      redirect_to :edit
+      render :edit
     end
     authorize @brand
   end
