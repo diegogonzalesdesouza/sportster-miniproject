@@ -16,15 +16,15 @@
     </div>
 
     <div class="field">
-      <div class="control">
+
         <div class="select is-primary">
-          <select name="athlete[:is_athlete]">
+<!--           <select name="athlete[is_athlete]">
             <option value="" hidden >Athlete/Brand</option>
             <option value="true">Athlete</option>
             <option value="false">Brand</option>
-          </select>
+          </select> -->
+        <%= f.select :is_athlete, options_for_select({ "Athlete" => true, "Brand" => false }), prompt: 'Select Person' %>
         </div>
-      </div>
     </div>
 
     <div class="field">
