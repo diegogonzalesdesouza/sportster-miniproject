@@ -1,5 +1,4 @@
 <div class="container">
-  <h1><strong>Brands</strong></h1>
   <div class="columns is-multiline">
     <% @brands.each do |brand| %>
       <%= link_to brand_path(brand) do %>
@@ -18,8 +17,8 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4"><%= brand.name.capitalize + ' ' + brand.slogan.capitalize + ' ' + brand.cnpj.to_s %></p>
-                  <p class="subtitle is-6">Run for your life</p>
+                  <p class="title is-4"><%= brand.name.capitalize %></p>
+                  <p class="subtitle is-6"><%= brand.slogan.capitalize %></p>
                 </div>
               </div>
               <div class="content">
@@ -29,8 +28,9 @@
                 <br>
                 <time datetime="2016-1-1">11:09 PM - 1 Jan 2017</time>
               </div>
-              <div class="like">
-                <%= link_to interests_path(brand), method: 'POST' do %>
+              <div class="interest">
+                <%= if brand %>
+                <%= link_to interests_path(brand_id: brand), method: 'POST' do %>
                     <%= fa_icon "heart" %>
                 <% end %>
               </div>
