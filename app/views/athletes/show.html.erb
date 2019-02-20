@@ -1,28 +1,32 @@
 <div class="container is-fullhd">
-  <div class="notification">
-    <p>
-      <strong>Name:</strong>
-      <%= @athlete.first_name %> <%= @athlete.last_name %>
-    </p>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="box">
+        <p>
+          <strong>Name:</strong>
+          <%= @athlete.first_name %> <%= @athlete.last_name %>
+        </p>
 
-    <p>
-      <strong>Birth Date:</strong>
-      <%= @athlete.birth_date %>
-    </p>
+        <p>
+          <strong>Birth Date:</strong>
+          <%= @athlete.birth_date %>
+        </p>
 
-    <p>
-      <strong>CPF:</strong>
-      <%= @athlete.cpf %>
-    </p>
+        <p>
+          <strong>CPF:</strong>
+          <%= @athlete.cpf %>
+        </p>
 
-    <% if policy(@athlete).edit? %>
-      <p> <%= link_to "Edit profile", edit_athlete_path(@athlete) %></p>
-    <% end %>
+        <% if policy(@athlete).edit? %>
+        <%= link_to "Edit profile", edit_athlete_path(@athlete), class: 'button is-small' %>
+        <% end %>
 
-    <% if policy(@athlete).destroy? %>
-      <p><%= link_to 'Delete profile', @athlete, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <% end %>
+        <% if policy(@athlete).destroy? %>
+        <%= link_to 'Delete profile', @athlete, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small' %>
+        <% end %>
 
-    <p> <%= link_to "Back", :root %></p>
+        <%= link_to "Back", :root, class: 'button is-small' %>
+      </div>
+    </div>
   </div>
 </div>
