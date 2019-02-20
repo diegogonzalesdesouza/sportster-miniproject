@@ -1,0 +1,24 @@
+.alert-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh;
+  color: #fff;
+  font-weight: bold;
+}
+
+.alert {
+  background-color: red;
+}
+
+.notice {
+  background-color: green;
+}
+
+.close {
+  position: absolute;
+  right: 2vh;
+  color: #fff;
+  text-decoration: none !important;
+}
+
