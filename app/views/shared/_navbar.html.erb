@@ -16,9 +16,9 @@
       <div class="buttons">
         <% if user_signed_in? %>
         <% if current_user.is_athlete %>
-        <%= link_to "ATHELETE PROFILE", athlete_path(current_user.athlete), class: "button is-info " %>
-        <% else %>
-        <%= link_to "BRAND PROFILE", brand_path(current_user.brand), class: "button is-info" %>
+        <%= link_to "ATHELETE PROFILE", new_athlete_path(current_user.athlete), class: "button is-info " %>
+        <% elsif !current_user.is_athlete %>
+        <%= link_to "BRAND PROFILE", new_brand_path(current_user.brand), class: "button is-info" %>
         <% end %>
         <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "button is-light" %>
         <% else %>
