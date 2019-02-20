@@ -3,10 +3,8 @@ class AthletesController < ApplicationController
 
   def index
     @athletes = policy_scope(Athlete)
-    # redirect_to all_athletes_path
     if @athletes.nil?
       redirect_to :root
-      raise
     end
   end
 
