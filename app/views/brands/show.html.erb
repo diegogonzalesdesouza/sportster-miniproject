@@ -15,8 +15,14 @@
       <%= @brand.cnpj %>
     </p>
 
-    <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
-    <p> <%= link_to "Back to Athletes", athletes_path %></p>
+    <% if policy(@brand).edit? %>
+      <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
+    <% end %>
+
+    <% if policy(@brand).destroy? %>
+      <p><%= link_to 'Delete profile', @brand, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+
+    <p> <%= link_to "Back to Brands", :root %></p>
   </div>
 </div>
-

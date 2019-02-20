@@ -15,7 +15,14 @@
       <%= @athlete.cpf %>
     </p>
 
-    <p> <%= link_to "Edit profile", edit_athlete_path(@athlete) %></p>
-    <p> <%= link_to "Back to Brands", brands_path %></p>
+    <% if policy(@athlete).edit? %>
+      <p> <%= link_to "Edit profile", edit_athlete_path(@athlete) %></p>
+    <% end %>
+
+    <% if policy(@athlete).destroy? %>
+      <p><%= link_to 'Delete profile', @athlete, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+
+    <p> <%= link_to "Back to Athletes", :root %></p>
   </div>
 </div>
