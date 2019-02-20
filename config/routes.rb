@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :athletes, except: :index do
     resources :achievements, except: :show
   end
-  resources :interests, except: %i[show index]
+
   get 'all_athletes', to: 'athletes#index'
 
+  resources :interests, except: %i[index show new edit update]
 
   root 'pages#home'
 end
