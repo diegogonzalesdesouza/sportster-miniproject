@@ -1,4 +1,12 @@
 class InterestsController < ApplicationController
+
+  def index
+    @interests = policy_scope(Interest)
+    if @interests.nil?
+      redirect_to :root
+    end
+  end
+  
   def create
     @interest = Interest.new(interest_params)
     authorize @interest
@@ -13,7 +21,6 @@ class InterestsController < ApplicationController
 
   def destroy
     authorize @interest
-
   end
 
   private
