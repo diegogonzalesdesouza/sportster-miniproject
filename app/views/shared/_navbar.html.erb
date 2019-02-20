@@ -16,10 +16,15 @@
       <div class="buttons">
         <a class="button is-primary">
           <% if user_signed_in? %>
-            <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+            <% if current_user.is_athlete %>
+              <%= link_to "|ATHELETE PROFILE", athlete_path(current_user.athlete) %>
+            <% else %>
+              <%= link_to "|BRAND PROFILE", brand_path(current_user.brand) %>
+            <% end %>
+            <%= link_to "|LOGOUT|", destroy_user_session_path, method: :delete %>
           <% else %>
-            <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path %>
-            <%= link_to t(".sign_in", default: "CRIAR CONTA"), new_user_registration_path %>
+            <%= link_to t(".sign_in", default: "|LOGIN"), new_user_session_path %>
+            <%= link_to t(".sign_in", default: "|CRIAR CONTA|"), new_user_registration_path %>
           <% end %>
       </div>
     </div>
