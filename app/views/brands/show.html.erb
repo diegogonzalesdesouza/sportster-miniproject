@@ -1,2 +1,21 @@
-<h1>Brand#show</h1>
-<p>Find me in app/views/brand/show.html.erb</p>
+<div class="container is-fullhd">
+  <div class="notification">
+    <p>
+      <strong>Brand Name:</strong>
+      <%= @brand.name %>
+    </p>
+
+    <p>
+      <strong>Brand Slogan:</strong>
+      <%= @brand.slogan %>
+    </p>
+
+    <p>
+      <strong>CNPJ:</strong>
+      <%= @brand.cnpj %>
+    </p>
+
+    <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
+    <p> <%= link_to "Back to Athletes", athletes_path %></p>
+  </div>
+</div>
