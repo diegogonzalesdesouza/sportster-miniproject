@@ -22,8 +22,8 @@
         <% end %>
         <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "button is-light" %>
         <% else %>
-        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path %>
-        <%= link_to t(".sign_in", default: "CRIAR CONTA|"), new_user_registration_path %>
+        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "button is-info" %>
+        <%= link_to t(".sign_in", default: "CRIAR CONTA"), new_user_registration_path, class: "button is-light" %>
         <% end %>
       </div>
     </div>
