@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :athletes, except: :index do
     resources :achievements, except: :show
-    resources :interests, except: %i[show index]
   end
+  resources :interests, except: %i[show index]
   get 'all_athletes', to: 'athletes#index'
 
 
