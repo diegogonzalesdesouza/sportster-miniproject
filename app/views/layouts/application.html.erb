@@ -12,9 +12,17 @@
 </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<!--   <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p> -->
   <%= render 'shared/navbar' %>
+  <% flash.each do |key, value| %>
+    <div class="message">
+      <div class="alert-message <%= key %> fade in">
+        <center><strong><%= value %></strong></center>
+        <a class="close" href="#">&times</a>
+      </div>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 </html>
