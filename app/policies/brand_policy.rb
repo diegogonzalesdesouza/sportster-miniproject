@@ -12,7 +12,7 @@ class BrandPolicy < ApplicationPolicy
   end
 
   def create?
-    !user.is_athlete && Brand.where(user: user) == []
+    !user.is_athlete && user.brand.nil?
   end
 
   def update?
