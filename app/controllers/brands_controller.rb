@@ -1,8 +1,11 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: [:show, :edit, :update, :destroy]
+  before_action :set_brand, only: %i[show edit update destroy]
 
   def index
     @brands = policy_scope(Brand)
+    if @brands.nil?
+      redirect_to :root
+    end
   end
 
   def show

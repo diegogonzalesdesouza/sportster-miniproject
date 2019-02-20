@@ -1,7 +1,7 @@
 class AthletePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all if user.is_athlete == false
     end
   end
 

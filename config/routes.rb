@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :athletes do
+
+  resources :brands, except: :index
+  get 'brands', to: 'brands#index'
+
+  resources :athletes, except: :index do
     resources :achievements, except: :show
-    resources :interests, except: [:show, :index]
+    resources :interests, except: %i[show index]
   end
-  resources :brands
+  get 'athletes', to: 'athletes#index'
+
 
   root 'pages#home'
 end
