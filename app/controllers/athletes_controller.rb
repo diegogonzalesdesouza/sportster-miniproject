@@ -3,6 +3,9 @@ class AthletesController < ApplicationController
 
   def index
     @athletes = policy_scope(Athlete)
+    if @athletes.nil?
+      redirect_to :root
+    end
   end
 
   def show
