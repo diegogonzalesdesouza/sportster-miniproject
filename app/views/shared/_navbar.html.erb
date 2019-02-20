@@ -1,8 +1,15 @@
 <nav class="navbar margin-navbar" role="navigation" aria-label="main navigation">
 
-    <%= link_to :root, class: "navbar-item" do %>
-    <%= image_tag "image.png", alt: "SPORTSTER", width: 224, height: 56 %>
-    <% end %>
+  <%= link_to :root, class: "navbar-item" do %>
+  <%= image_tag "image.png", alt: "SPORTSTER", width: 224, height: 56 %>
+  <% end %>
+  <div class="navbar-start">
+    <div class="navbar-item">
+      <div class="buttons">
+        <%= link_to "MY LIKES", athlete_interests_path(current_user.athlete) %>
+      </div>
+    </div>
+  </div>
 
   <div class="navbar-end">
     <div class="navbar-item">
