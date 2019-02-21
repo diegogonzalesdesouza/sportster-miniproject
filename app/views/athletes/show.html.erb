@@ -2,6 +2,9 @@
   <div class="columns is-centered">
     <div class="column is-half">
       <div class="box">
+
+        <%= cl_image_tag @athlete.profile_photo.url(:bright_face) %>
+
         <p>
           <span class="athlete">
           <%= @athlete.first_name %> <%= @athlete.last_name %>

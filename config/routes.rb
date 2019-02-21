@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'all_athletes', to: 'athletes#index'
 
-  resources :interests, except: %i[index show new edit update]
+  resources :interests, only: %i[create destroy]
 
   root 'pages#home'
 end
