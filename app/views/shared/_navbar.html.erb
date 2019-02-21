@@ -15,15 +15,23 @@
     <div class="navbar-item">
       <div class="buttons">
         <% if user_signed_in? %>
-        <% if current_user.is_athlete %>
-        <%= link_to "ATHELETE PROFILE", new_athlete_path(current_user.athlete), class: "button is-info " %>
-        <% elsif !current_user.is_athlete %>
-        <%= link_to "BRAND PROFILE", new_brand_path(current_user.brand), class: "button is-info" %>
-        <% end %>
-        <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "button is-light" %>
+          <% if current_user.is_athlete %>
+            <% if current_user.athlete.nil? %>
+              <%= link_to "CREATE PROFILE", new_athlete_path(current_user.athlete), class: "button is-info " %>
+            <% else %>
+              <%= link_to "VIEW PROFILE", athlete_path(current_user.athlete), class: "button is-info " %>
+            <% end %>
+          <% elsif !current_user.is_athlete %>
+            <% if current_user.brand.nil? %>
+              <%= link_to "CREATE PROFILE", new_brand_path(current_user.brand), class: "button is-info" %>
+            <% else %>
+              <%= link_to "VIEW PROFILE", brand_path(current_user.brand), class: "button is-info " %>
+            <% end %>
+          <% end %>
+          <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "button is-light" %>
         <% else %>
-        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "button is-info navbar-item" %>
-        <%= link_to t(".sign_in", default: "CRIAR CONTA"), new_user_registration_path, class: "button is-light" %>
+          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "button is-info navbar-item" %>
+          <%= link_to t(".sign_in", default: "CRIAR CONTA"), new_user_registration_path, class: "button is-light" %>
         <% end %>
       </div>
     </div>
