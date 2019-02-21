@@ -5,4 +5,13 @@ class Brand < ApplicationRecord
   validates :name, presence: true, length: { minimum: 2 }
   validates :slogan, presence: true, length: { minimum: 2 }
   validates :cnpj, presence: true
+
+  def is_interested?(brand, athlete)
+    @interest = Interest.where(brand: brand, athlete: athlete)
+    if @interest == []
+      false
+    else
+      true
+    end
+  end
 end
