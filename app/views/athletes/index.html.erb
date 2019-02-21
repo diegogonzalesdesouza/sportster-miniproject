@@ -31,7 +31,7 @@
                 <br>
                 <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
               </div>
-              <% unless !current_user.brand.nil? %>
+              <% unless current_user.brand.nil? %>
                 <% if current_user.brand.is_interested?(current_user.brand, athlete) %>
                   <div class="interest">
                     <%= link_to "interests/#{Interest.where(brand_id: current_user.brand, athlete_id: athlete).first.id}", method: 'DELETE' do %>
