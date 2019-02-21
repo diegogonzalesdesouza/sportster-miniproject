@@ -13,7 +13,7 @@
         <%= f.date_field :birth_date, as: :date, value: f.object.try(:strftime, "%d/%m/%Y"), class:"input", placeholder: "18/07/1997" %>
         <div style="margin: 5px">
           <%= f.submit "Save", class: "button is-link" %>
-          <%= link_to "Cancel", brands_path, class: "button is-text" %>
+          <%= link_to "Cancel", all_brands_path, class: "button is-text" %>
           <% end %>
         </div>
       </div>

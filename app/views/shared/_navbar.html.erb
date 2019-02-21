@@ -1,6 +1,6 @@
 <nav class="navbar margin-navbar" role="navigation" aria-label="main navigation">
 
-  <%= link_to :root, class: "navbar-item" do %>
+  <%= link_to :root do %>
   <%= image_tag "image.png", alt: "SPORTSTER", width: 224, height: 56 %>
   <% end %>
   <!-- <div class="navbar-start">
@@ -16,13 +16,13 @@
       <div class="buttons">
         <% if user_signed_in? %>
         <% if current_user.is_athlete %>
-        <%= link_to "ATHELETE PROFILE", athlete_path(current_user.athlete), class: "button is-info" %>
-        <% else %>
-        <%= link_to "BRAND PROFILE", brand_path(current_user.brand), class: "button is-info" %>
+        <%= link_to "ATHELETE PROFILE", new_athlete_path(current_user.athlete), class: "button is-info " %>
+        <% elsif !current_user.is_athlete %>
+        <%= link_to "BRAND PROFILE", new_brand_path(current_user.brand), class: "button is-info" %>
         <% end %>
         <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "button is-light" %>
         <% else %>
-        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "button is-info" %>
+        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "button is-info navbar-item" %>
         <%= link_to t(".sign_in", default: "CRIAR CONTA"), new_user_registration_path, class: "button is-light" %>
         <% end %>
       </div>

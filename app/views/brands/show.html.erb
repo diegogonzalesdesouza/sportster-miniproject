@@ -1,28 +1,32 @@
 <div class="container is-fullhd">
-  <div class="notification">
-    <p>
-      <strong>Brand Name:</strong>
-      <%= @brand.name %>
-    </p>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="box">
+        <p>
+          <strong>Brand Name:</strong>
+          <%= @brand.name %>
+        </p>
 
-    <p>
-      <strong>Brand Slogan:</strong>
-      <%= @brand.slogan %>
-    </p>
+        <p>
+          <strong>Brand Slogan:</strong>
+          <%= @brand.slogan %>
+        </p>
 
-    <p>
-      <strong>CNPJ:</strong>
-      <%= @brand.cnpj %>
-    </p>
+        <p>
+          <strong>CNPJ:</strong>
+          <%= @brand.cnpj %>
+        </p>
 
-    <% if policy(@brand).edit? %>
-      <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
-    <% end %>
+        <% if policy(@brand).edit? %>
+        <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
+        <% end %>
 
-    <% if policy(@brand).destroy? %>
-      <p><%= link_to 'Delete profile', @brand, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <% end %>
+        <% if policy(@brand).destroy? %>
+        <p><%= link_to 'Delete profile', @brand, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
 
-    <p> <%= link_to "Back", :root %></p>
+        <p> <%= link_to "Back", :root %></p>
+      </div>
+    </div>
   </div>
 </div>

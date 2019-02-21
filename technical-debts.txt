@@ -1,3 +1,4 @@
 #1 - validates model's attributes (cnpj, cfp, birth_date)
 #2 - destroy dependents (user => athlete/brand)
 #3 - fix punit validations, (after log in athlete can view all athletes)
+#4 - double check all routes as athlete, brand and as new user!! many arnt working
