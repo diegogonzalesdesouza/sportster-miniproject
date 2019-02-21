@@ -6,8 +6,8 @@
 
         <%# PROFILE PHOTO %>
         <%= f.label :profile_photo, 'Profile Photo', class:'label'%>
-        <%= f.input :profile_photo %>
-        <%= f.input :profile_photo_cache, as: :hidden %>
+        <%= f.file_field :profile_photo %>
+        <%= f.hidden_field :profile_photo_cache %>
 
         <%# FIRST NAME %>
         <%= f.label :first_name, 'First Name', class:'label'%>
