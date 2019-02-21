@@ -6,6 +6,8 @@ class Brand < ApplicationRecord
   validates :slogan, presence: true, length: { minimum: 2 }
   validates :cnpj, presence: true
 
+  mount_uploader :profile_photo, PhotoUploader
+
   def is_interested?(brand, athlete)
     @interest = Interest.where(brand: brand, athlete: athlete)
     if @interest == []
