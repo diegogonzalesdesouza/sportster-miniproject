@@ -18,14 +18,14 @@
         </p>
 
         <% if policy(@brand).edit? %>
-        <p> <%= link_to "Edit profile", edit_brand_path(@brand) %></p>
+          <%= link_to "Edit profile", edit_brand_path(@brand), class: 'button is-small' %>
         <% end %>
 
         <% if policy(@brand).destroy? %>
-        <p><%= link_to 'Delete profile', @brand, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <%= link_to 'Delete profile', @brand, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small' %>
         <% end %>
 
-        <p> <%= link_to "Back", :root %></p>
+        <%= link_to "Back", :root, class: 'button is-small' %>
       </div>
     </div>
   </div>
