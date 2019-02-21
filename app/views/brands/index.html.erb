@@ -28,7 +28,6 @@
                 <br>
                 <time datetime="2016-1-1">11:09 PM - 1 Jan 2017</time>
               </div>
-              <%# @interests.each do |interest| %>
               <% unless current_user.brand.nil? %>
                 <% if current_user.athlete.is_interested?(brand, current_user.athlete) %>
                   <div class="interest">
