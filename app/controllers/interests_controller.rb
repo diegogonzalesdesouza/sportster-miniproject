@@ -17,12 +17,17 @@ class InterestsController < ApplicationController
       @interest.brand = current_user.brand
     end
     @interest.save
+
+    redirect_to all_athletes_path
   end
 
   def destroy
     @interest = Interest.find(params[:id])
     authorize @interest
     @interest.destroy
+
+    redirect_to all_athletes_path
+    
   end
 
   private
