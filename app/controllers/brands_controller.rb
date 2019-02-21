@@ -3,6 +3,7 @@ class BrandsController < ApplicationController
 
   def index
     @brands = policy_scope(Brand)
+    @interests = policy_scope(Interest).where(athlete: current_user.athlete)
     if @brands.nil?
       redirect_to :root
     end
