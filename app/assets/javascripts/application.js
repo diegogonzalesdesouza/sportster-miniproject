@@ -14,3 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// import { haveInterest } from 'components/interest_button';
+// haveInterest();
