@@ -6,4 +6,6 @@ class Athlete < ApplicationRecord
   validates :last_name, presence: true, length: { minimum: 2 }
   validates :birth_date, presence: true
   validates :cpf, presence: true
+
+  mount_uploader :profile_photo, PhotoUploader
 end
