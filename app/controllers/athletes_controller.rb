@@ -43,7 +43,6 @@ class AthletesController < ApplicationController
     @athlete.user.destroy
 
     redirect_to :root
-    # must log-out && redirect to home page
   end
 
   private
