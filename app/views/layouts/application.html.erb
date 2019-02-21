@@ -6,25 +6,24 @@
   <title>SPORTSTER | Sponsorship made easy</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-
+  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-<!--   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
-  <%= render 'shared/navbar' %>
-  <% flash.each do |key, value| %>
+  <!--   <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+    <%= render 'shared/navbar' %>
+    <% flash.each do |key, value| %>
     <div class="message">
       <div class="alert-message <%= key %> fade in">
         <center><strong><%= value %></strong></center>
         <a class="close" href="#">&times</a>
       </div>
     </div>
-  <% end %>
-  <%= yield %>
-</body>
-</html>
+    <% end %>
+    <%= yield %>
+  </body>
+  </html>
