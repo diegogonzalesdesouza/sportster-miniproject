@@ -43,13 +43,12 @@ class AthletesController < ApplicationController
     @athlete.user.destroy
 
     redirect_to :root
-    # must log-out && redirect to home page
   end
 
   private
 
   def athlete_params
-    params.require(:athlete).permit(:first_name, :last_name, :birth_date, :cpf)
+    params.require(:athlete).permit(:first_name, :last_name, :birth_date, :cpf, :profile_photo)
   end
 
   def set_athlete

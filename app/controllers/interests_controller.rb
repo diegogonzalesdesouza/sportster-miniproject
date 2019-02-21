@@ -6,7 +6,7 @@ class InterestsController < ApplicationController
       redirect_to :root
     end
   end
-  
+
   def create
     @interest = Interest.new(interest_params)
     authorize @interest
@@ -20,7 +20,9 @@ class InterestsController < ApplicationController
   end
 
   def destroy
+    @interest = Interest.find(params[:id])
     authorize @interest
+    @interest.destroy
   end
 
   private
