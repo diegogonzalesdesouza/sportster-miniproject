@@ -1,8 +1,10 @@
 .my-brand-card {
   filter: grayscale(70%);
   box-shadow: 2px 2px 4px lightgray;
-  filter: grayscale(0%);
+  transition: 0.2s;
   &:hover {
     box-shadow: 3px 3px 7px lightgray;
+    filter: grayscale(0%);
+    transition: 0.2s;
   }
 }
