@@ -10,11 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    raise
-    # create athlete or brand depending on what comes from form
-  end
+  # def create
+  #   super
+  #   #create athlete or brand depending on what comes from form
+  # end
 
   # GET /resource/edit
   # def edit
