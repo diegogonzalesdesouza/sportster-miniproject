@@ -7,6 +7,9 @@ class Athlete < ApplicationRecord
   validates :birth_date, presence: true
   validates :cpf, presence: true
 
+
+  mount_uploader :profile_photo, PhotoUploader
+
   def is_interested?(brand, athlete)
     @interest = Interest.where(brand: brand, athlete: athlete)
     if @interest == []
