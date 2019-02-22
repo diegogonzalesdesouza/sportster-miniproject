@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_params, if: :devise_controller?
   before_action :set_style, if: :devise_controller?
 
-
   include Pundit
 
   # Pundit: white-list approach.
@@ -20,7 +19,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_style
-    @style = "background-image: url('#{view_context.image_path('back1.jpg')}'); background-size: cover; height:100vh" if request['action'] == 'new'
+    @style = "background-image: url('#{view_context.image_path('back1.jpg')}'); background-size: cover; height:100vh" if request['controller'] == 'devise/sessions' && request['action'] == 'new'
+    @style = "background-image: url('#{view_context.image_path('back2.jpg')}'); background-size: cover; height:100vh" if request['controller'] == 'devise/passwords' && request['action'] == 'new'
+    @style = "background-image: url('#{view_context.image_path('back3.jpg')}'); background-size: cover; height:100vh" if request['controller'] == 'devise/registrations' && request['action'] == 'new'
   end
 
   def skip_pundit?

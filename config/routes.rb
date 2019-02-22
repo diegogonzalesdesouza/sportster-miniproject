@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :interests, only: %i[create update destroy]
 
+  get 'landing', to: 'pages#landing'
   root 'pages#home'
 end
 

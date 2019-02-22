@@ -8,6 +8,8 @@ class Athlete < ApplicationRecord
   validates :cpf, presence: true
 
   mount_uploader :profile_photo, PhotoUploader
+  mount_uploader :cover_photo, PhotoUploader
+
 
   def is_interested?(brand, athlete)
     @interest = Interest.where(brand: brand, athlete: athlete).first
