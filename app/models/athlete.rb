@@ -11,11 +11,12 @@ class Athlete < ApplicationRecord
   mount_uploader :profile_photo, PhotoUploader
 
   def is_interested?(brand, athlete)
-    @interest = Interest.where(brand: brand, athlete: athlete)
-    if @interest == []
+    @interest = Interest.where(brand: brand, athlete: athlete).first
+
+    if @interest.nil?
       false
     else
-      true
+      @athlete_interest = @interest.athlete_interest
     end
   end
 end

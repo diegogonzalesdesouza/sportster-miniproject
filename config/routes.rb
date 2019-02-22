@@ -11,11 +11,10 @@ Rails.application.routes.draw do
 
   get 'all_athletes', to: 'athletes#index'
 
-  resources :interests, only: %i[create destroy]
+  resources :interests, only: %i[create update destroy]
 
   root 'pages#home'
 end
-
 
 #
 # Rails.application.routes.draw do
