@@ -3,11 +3,15 @@
     <div class="column is-half">
       <div class="box">
 
+        <div class="cover-Photo">
+          <%= cl_image_tag @athlete.cover_photo, height: 300, width: 700, crop: :fill, style:"border-radius: 12px 12px 12px 12px"%>
+        </div>
+
         <%= cl_image_tag @athlete.profile_photo.url(:bright_face) %>
 
         <p>
           <span class="athlete">
-          <%= @athlete.first_name %> <%= @athlete.last_name %>
+          <%= @athlete.first_name.capitalize %> <%= @athlete.last_name.capitalize %>
         </span>
         </p>
 
