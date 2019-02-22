@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_params, if: :devise_controller?
   before_action :set_style, if: :devise_controller?
 
-
   include Pundit
 
   # Pundit: white-list approach.
