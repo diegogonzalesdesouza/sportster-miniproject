@@ -24,6 +24,10 @@
         <%# DATE OF BIRTH %>
         <%= f.label :birth_date, 'Date of Birth', class:'label'%>
         <%= f.date_field :birth_date, as: :date, value: f.object.try(:strftime, "%d/%m/%Y"), class:"input", placeholder: "18/07/1997" %>
+
+        <%# ACHIEVEMENTS %>
+        <%= f.label :achievements, 'Achievements', class:'label'%>
+        <%= f.text_field :achievements, class:"input", placeholder: "Tell us your achievements's date, description, etc" %>
         <div style="margin: 5px">
           <%= f.submit "Save", class: "button is-link" %>
           <%= link_to "Cancel", all_brands_path, class: "button is-text" %>
