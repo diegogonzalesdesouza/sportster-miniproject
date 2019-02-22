@@ -3,17 +3,17 @@
     <% @brands.each do |brand| %>
       <%= link_to brand_path(brand) do %>
         <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-          <div class="card my-brand-card">
+          <div class="card my-card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="https://source.unsplash.com/random" alt="Placeholder image">
+                <img src="https://source.unsplash.com/random" alt="Placeholder image" style="border-radius: 7px">
               </figure>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <img src="https://source.unsplash.com/48x48/?profile" alt="Placeholder image">
+                    <%= cl_image_tag brand.profile_photo.url(:thumnail) %>
                   </figure>
                 </div>
                 <div class="media-content">

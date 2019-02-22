@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_params, if: :devise_controller?
+  before_action :set_style, if: :devise_controller?
+
+
   include Pundit
 
   # Pundit: white-list approach.
@@ -15,6 +18,10 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+
+  def set_style
+    @style = "background-image: url('#{view_context.image_path('back1.jpg')}'); background-size: cover; height:100vh" if request['action'] == 'new'
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
