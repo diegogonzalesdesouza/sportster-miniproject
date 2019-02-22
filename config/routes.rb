@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'achievements/new'
+  get 'achievements/create'
+  get 'achievements/show'
+  get 'achievements/edit'
+  get 'achievements/update'
+  get 'achievements/destroy'
   devise_for :users
 
   resources :brands, except: :index
@@ -18,6 +24,12 @@ end
 
 #
 # Rails.application.routes.draw do
+  get 'achievements/new'
+  get 'achievements/create'
+  get 'achievements/show'
+  get 'achievements/edit'
+  get 'achievements/update'
+  get 'achievements/destroy'
 #   devise_for :users, controllers: {
 #     sessions: 'users/sessions'
 #   }
