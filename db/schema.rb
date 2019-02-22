@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_02_22_171355) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "profile_photo"
-    t.text "achievements"
     t.string "cover_photo"
+    t.text "achievements"
     t.index ["user_id"], name: "index_athletes_on_user_id"
   end
 
@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(version: 2019_02_22_171355) do
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "match", default: false
+    t.boolean "athlete_interest", default: false
+    t.boolean "brand_interest", default: false
     t.index ["athlete_id"], name: "index_interests_on_athlete_id"
     t.index ["brand_id"], name: "index_interests_on_brand_id"
   end
