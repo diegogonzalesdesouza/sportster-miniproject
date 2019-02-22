@@ -3,20 +3,21 @@
     <div class="column is-half">
       <div class="box">
 
-        <%= cl_image_tag @brand.profile_photo.url(:thumnail) %>
+        <div class="cover-Photo">
+          <%= cl_image_tag @brand.cover_photo, height: 300, width: 700, crop: :fill, style:"border-radius: 12px 12px 12px 12px"%>
+        </div>
+
+        <%= cl_image_tag @brand.profile_photo.url(:thumnail), style:"border-radius: 12px 12px 12px 12px" %>
 
         <p>
-          <strong>Brand Name:</strong>
           <%= @brand.name %>
         </p>
 
         <p>
-          <strong>Brand Slogan:</strong>
           <%= @brand.slogan %>
         </p>
 
         <p>
-          <strong>CNPJ:</strong>
           <%= @brand.cnpj %>
         </p>
 
