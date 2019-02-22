@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(version: 2019_02_21_145453) do
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "match", default: false
+    t.boolean "athlete_interest", default: false
+    t.boolean "brand_interest", default: false
     t.index ["athlete_id"], name: "index_interests_on_athlete_id"
     t.index ["brand_id"], name: "index_interests_on_brand_id"
   end
