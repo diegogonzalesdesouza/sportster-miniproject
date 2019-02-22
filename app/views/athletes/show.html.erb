@@ -4,36 +4,41 @@
       <div class="box">
 
         <div class="cover-Photo">
+          <%= link_to "Back to brands", :root, class: 'button is-small' %>
+          <p>&nbsp;</p>
           <%= cl_image_tag @athlete.cover_photo, height: 300, width: 700, crop: :fill, style:"border-radius: 12px 12px 12px 12px"%>
         </div>
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <%= cl_image_tag @athlete.profile_photo.url(:bright_face) %>
+            </div>
+            <div class="media-content">
+              <p><b>
+                <%= @athlete.first_name.capitalize %> <%= @athlete.last_name.capitalize %>
+              </b></p>
+              <p><small><i class="fas fa-sun"></i></small>
+                <%= @athlete.birth_date %>
+              </p>
+              <p><strong>ID:</strong>
+                <%= @athlete.cpf %>
+              </p>
+              <p><strong>Achievements: </strong>
+                <p><%= @athlete.achievements %></p>
+              </p>
+            </div>
+          </article>
 
-        <%= cl_image_tag @athlete.profile_photo.url(:bright_face) %>
-
-        <p><strong>Name: </strong>
-          <%= @athlete.first_name.capitalize %> <%= @athlete.last_name.capitalize %>
-        </p>
-
-        <p><strong>Bith Date: </strong>
-          <%= @athlete.birth_date %>
-        </p>
-
-        <p><strong>CPF:</strong>
-          <%= @athlete.cpf %>
-        </p>
-
-        <p><strong>Achievements: </strong>
-          <%= @athlete.achievements %>
-        </p>
-
+        </div>
         <% if policy(@athlete).edit? %>
-        <%= link_to "Edit profile", edit_athlete_path(@athlete), class: 'button is-small' %>
+        <b><%= link_to "Edit profile", edit_athlete_path(@athlete), class: 'button is-small' %></b>
         <% end %>
 
         <% if policy(@athlete).destroy? %>
         <%= link_to 'Delete profile', @athlete, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small' %>
         <% end %>
 
-        <%= link_to "Back", :root, class: 'button is-small' %>
+
       </div>
     </div>
   </div>

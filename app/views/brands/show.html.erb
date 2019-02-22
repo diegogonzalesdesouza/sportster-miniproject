@@ -6,8 +6,13 @@
         <div class="cover-Photo">
           <%= cl_image_tag @brand.cover_photo, height: 300, width: 700, crop: :fill, style:"border-radius: 12px 12px 12px 12px"%>
         </div>
-
-        <%= cl_image_tag @brand.profile_photo.url(:thumnail), style:"border-radius: 12px 12px 12px 12px" %>
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <%= cl_image_tag @brand.profile_photo.url(:thumnail), style:"border-radius: 12px 12px 12px 12px" %>
+            </div>
+          <div class="media-content">
+              <p>
 
         <p>
           <%= @brand.name %>
@@ -20,6 +25,7 @@
         <p>
           <%= @brand.cnpj %>
         </p>
+      </div>
 
         <% if policy(@brand).edit? %>
         <%= link_to "Edit profile", edit_brand_path(@brand), class: 'button is-small' %>
