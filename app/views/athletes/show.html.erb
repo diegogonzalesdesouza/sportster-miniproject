@@ -9,16 +9,20 @@
 
         <%= cl_image_tag @athlete.profile_photo.url(:bright_face) %>
 
-        <p>
+        <p><strong>Name: </strong>
           <%= @athlete.first_name.capitalize %> <%= @athlete.last_name.capitalize %>
         </p>
 
-        <p>
+        <p><strong>Bith Date: </strong>
           <%= @athlete.birth_date %>
         </p>
 
-        <p>
+        <p><strong>CPF:</strong>
           <%= @athlete.cpf %>
+        </p>
+
+        <p><strong>Achievements: </strong>
+          <%= @athlete.achievements %>
         </p>
 
         <% if policy(@athlete).edit? %>
