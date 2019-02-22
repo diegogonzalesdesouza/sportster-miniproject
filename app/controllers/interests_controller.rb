@@ -7,37 +7,41 @@ class InterestsController < ApplicationController
   end
 
   def create
-    if Interest.where(athlete_id: interest_params[:athlete_id], brand_id: interest_params[:brand_id]) == []
-      @interest = Interest.new(interest_params)
-      authorize @interest
+    @interest = Interest.new(interest_params)
+    authorize @interest
 
-      if interest_params[:brand_id]
-        @interest.athlete = current_user.athlete
-      else
-        @interest.brand = current_user.brand
+    if @interest.save!
+      @athlete = Athlete.find(interest_params[:athlete_id])
+      @brand = Brand.find(interest_params[:brand_id])
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.js # <-- will render `app/views/interests/create.js.erb`
       end
     else
-      @interest = Interest.where(interest_params).first
-      authorize @interest
-
-      if interest_params[:brand_interest]
-        @interest.brand_interest = interest_params[:brand_interest]
-      else
-        @interest.brand_interest = interest_params[:athlete_interest]
+      respond_to do |format|
+        format.html { render :new }
+        format.js
       end
     end
-
-    @interest.save
-
-    redirect_to :root
   end
 
   def update
-    @interest = Interest.find(params[:id])
+    @interest = Interest.find(interest_params[:id])
     authorize @interest
-    @interest.update(interest_params)
 
-    redirect_to :root
+    if @interest.update(interest_params)
+      @athlete = Athlete.find(interest_params[:athlete_id])
+      @brand = Brand.find(interest_params[:brand_id])
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.js # <-- will render `app/views/interests/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
+    end
   end
 
   def destroy
@@ -45,12 +49,18 @@ class InterestsController < ApplicationController
     authorize @interest
     @interest.destroy
 
-    redirect_to :root
+    @athlete = Athlete.find(params[:athlete_id])
+    @brand = Brand.find(params[:brand_id])
+
+    respond_to do |format|
+      format.html { render :root }
+      format.js # <-- will render `app/views/interests/destroy.js.erb`
+    end
   end
 
   private
 
   def interest_params
-    params.permit(:athlete_id, :brand_id, :athlete_interest, :brand_interest)
+    params.permit(:id, :athlete_id, :brand_id, :athlete_interest, :brand_interest)
   end
 end
