@@ -6,14 +6,14 @@
           <div class="card my-card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="https://source.unsplash.com/random" alt="Placeholder image" style="border-radius: 12px 12px 0 0 ">
+                <%= cl_image_tag brand.cover_photo, style:"border-radius: 12px 12px 0 0"%>
               </figure>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <%= cl_image_tag brand.profile_photo.url(:thumnail) %>
+                    <%= cl_image_tag brand.profile_photo.url(:thumnail), style:"border-radius: 10px 10px 10px 10px" %>
                   </figure>
                 </div>
                 <div class="media-content">

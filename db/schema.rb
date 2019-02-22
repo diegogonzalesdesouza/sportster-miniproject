@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_171355) do
     t.bigint "user_id"
     t.string "profile_photo"
     t.text "achievements"
+    t.string "cover_photo"
     t.index ["user_id"], name: "index_athletes_on_user_id"
   end
 
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_171355) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "profile_photo"
+    t.string "cover_photo"
     t.index ["user_id"], name: "index_brands_on_user_id"
   end
 
