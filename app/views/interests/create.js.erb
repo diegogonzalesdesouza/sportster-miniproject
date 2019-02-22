@@ -1,0 +1,23 @@
+function refreshInterestBrand(innerHTML) {
+  const newInterestLink = document.getElementById('interest-<%= @athlete.id %>');
+  newInterestLink.innerHTML = innerHTML;
+}
+
+function refreshInterestAthlete(innerHTML) {
+  const newInterestLink = document.getElementById('interest-<%= @brand.id %>');
+  newInterestLink.innerHTML = innerHTML;
+}
+
+<% if @interest.errors.any? && current_user.is_athlete %>
+  // if there's an error and user is an athlete, render interest passing brand to be iterated as param
+  refreshInterestAthlete('<%= j render "interests/athlete_interest", brand: @brand %>');
+<% elsif !@interest.errors.any? && current_user.is_athlete %>
+  // if there's no error and user is an athlete, render interest passing brand to be iterated as param
+  refreshInterestAthlete('<%= j render "interests/athlete_interest", brand: @brand %>');
+<% elsif @interest.errors.any? && !current_user.is_athlete %>
+  // if there's an error and user is a brand, render interest passing athlete to be iterated as param
+  refreshInterestBrand('<%= j render "interests/brand_interest", athlete: @athlete %>');
+<% elsif !@interest.errors.any? && !current_user.is_athlete %>
+  // if there's no error and user is a brand, render interest passing athlete to be iterated as param
+  refreshInterestBrand('<%= j render "interests/brand_interest", athlete: @athlete %>');
+<% end %>

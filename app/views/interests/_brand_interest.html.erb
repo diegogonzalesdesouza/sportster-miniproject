@@ -1,0 +1,29 @@
+<% unless current_user.brand.nil? %>
+
+  <div id="interest-<%= athlete.id %>" class="interest">
+
+    <!-- if both brand and athlete are interested -->
+    <% if current_user.brand.is_interested?(current_user.brand, athlete) && athlete.is_interested?(current_user.brand, athlete) %>
+      <div class="match">Match! <%= icon('fas', 'heart') %></div>
+
+    <!-- if only brand is interested, set brand's interest to false (unlike) -->
+    <% elsif current_user.brand.is_interested?(current_user.brand, athlete) %>
+      <%= link_to interest_path(id: Interest.where(brand_id: current_user.brand, athlete_id: athlete).first.id, brand_id: current_user.brand, athlete_id: athlete), method: 'DELETE', remote: true do %>
+        <div class="match liked"><%= icon('fas', 'heart') %></div>
+      <% end %>
+
+    <!-- if the athlete is interested, set brand's interest to true (match) -->
+    <% elsif athlete.is_interested?(current_user.brand, athlete) %>
+      <%= link_to interest_path(id: Interest.where(brand_id: current_user.brand, athlete_id: athlete).first.id, brand_id: current_user.brand, athlete_id: athlete, brand_interest: true), method: 'PATCH', remote: true do %>
+        <div class="match to-like"><%= icon('far', 'heart') %></div>
+      <% end %>
+
+    <!-- if no one is interested, create new interest (like) -->
+    <% else %>
+      <%= link_to interests_path(athlete_id: athlete.id, brand_id: current_user.brand, brand_interest: true), method: 'POST', remote: true do %>
+        <div class="match to-like"><%= icon('far', 'heart') %></div>
+      <% end %>
+    <% end %>
+
+  </div>
+<% end %>

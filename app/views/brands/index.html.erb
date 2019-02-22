@@ -22,40 +22,11 @@
                 </div>
               </div>
               <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                <a href="#"></a> <a href="#"></a>
+                <br>
               </div>
-              <% unless current_user.athlete.nil? %>
-                <!-- if both parts' interests are true -->
-                <% if current_user.athlete.is_interested?(brand, current_user.athlete) && brand.is_interested?(brand, current_user.athlete) %>
-                  <div class="interest">
-                    FUCKING MATCH!!!
-                  </div>
-                <!-- if current part is interested (but may want to undo) and third one is not yet-->
-                <% elsif current_user.athlete.is_interested?(brand, current_user.athlete) && !brand.is_interested?(brand, current_user.athlete) %>
-                  <div class="interest">
-                    <%= link_to "interests/#{Interest.where(brand_id: brand, athlete_id: current_user.athlete).first.id}", method: 'DELETE' do %>
-                      <%= icon('fas', 'star') %>
-                    <% end %>
-                  </div>
-                <!-- if there is no interest in place yet -->
-                <% elsif Interest.where(brand_id: brand, athlete_id: current_user.athlete).first.nil? %>
-                  <div class="interest">
-                    <%= link_to interests_path(brand_id: brand), method: 'POST' do %>
-                      <%= icon('far', 'star') %>
-                    <% end %>
-                  </div>
-                <!-- all other cases (specially when interest is created )  -->
-                <% else %>
-                  <div class="interest">
-                    <%= link_to interest_path(id: Interest.where(brand_id: brand, athlete_id: current_user.athlete).first.id, brand_id: brand, athlete_interest: true), method: 'PATCH' do %>
-                      <%= icon('far', 'star') %>
-                    <% end %>
-                  </div>
-                <% end %>
-              <% end %>
             </div>
+            <%= render 'interests/athlete_interest', brand: brand %>
           </div>
         </div>
       <% end %>

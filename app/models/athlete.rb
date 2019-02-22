@@ -7,7 +7,6 @@ class Athlete < ApplicationRecord
   validates :birth_date, presence: true
   validates :cpf, presence: true
 
-
   mount_uploader :profile_photo, PhotoUploader
   mount_uploader :cover_photo, PhotoUploader
 
